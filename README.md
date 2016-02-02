@@ -1,5 +1,5 @@
 # SEAT YOURSELF
-## Carlos, Steve, Mike
+## Carlos, Steve, Mike Bowman
 
 ### User Stories
 #### As a User:
@@ -10,4 +10,5 @@
 - "CRUD" a reservation
 - I can create my account
   - ** No login at this point
-  
+
+### v0 Stories
