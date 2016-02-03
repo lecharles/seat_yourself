@@ -17,4 +17,10 @@ class ReservationsController < ApplicationController
       render restaurant_path(@restaurant)
     end
   end
+
+  private
+
+  def reservation_params
+    params.require(:reservtion).permit(:time, :party_size, :user_id, :restaurant_id)
+  end
 end
