@@ -1,2 +1,10 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<h1>Seat Yourself!</h1>
+<br>
+<h2>Please select one of these fine restaurants</h2>
+<br>
+<div>
+  <%= @restaurants.each do |restaurant| %>
+  <%= "#{restaurant.name}" %>
+  <%= link_to "Go to restaurant page", restaurant_path(restaurant) %>
+  <%= end %>
+</div>
