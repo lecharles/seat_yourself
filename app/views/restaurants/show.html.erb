@@ -1,3 +1,11 @@
 
 <h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+
+<h3> Mike's Form....</h3>
+
+
+<div>
+<% @restaurant.reservations.each do |reservation| %>
+  <%= reservation.user %>
+<% end %>
+</div>
