@@ -1,2 +1,7 @@
-<h1>Restaurants#index</h1>
-<p>Find me in app/views/restaurants/index.html.erb</p>
+<h1>Seat Here | Toronto's Most Wanted</h1>
+<p>Find a restaurant through our curated selection.</p>
+<%= @restaurants.each do |restaurant| %>
+  <ul>
+    <li><%= restaurant.name %></li>
+  </ul>
+<% end %>
