@@ -1,3 +1,17 @@
 
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<h2>Restaurants#show</h2>
+<%= "Reservations for #{@restaurant.name}" %>
+<br>
+
+<div>
+  <p>
+  <% @restaurant.reservations.each do |reservation| %>
+  <%= "Reservation #: #{reservation.id}  " %>
+  <%= "User: #{reservation.user}  " %>
+  <%= "Party Size: #{reservation.party_size}  " %>
+  <%= "Time: #{reservation.time}  " %>
+<% end %>
+</p>
+</div>
+
+<br>
