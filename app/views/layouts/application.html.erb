@@ -8,14 +8,20 @@
 </head>
 <body>
   <header>
-    <h1>SeatYourself</h1>
+    <h1 class="app_title">SeatYourself</h1>
+    <!-- Add login/sign up options to header - wrap in a div or something -->
+    <!-- Add navigation options to header and footer - nav tag-->
   </header>
 
-<%= yield %>
+  <div class="main_content">
+    <%= yield %>
+  </div>
 
-
-  <p><%= link_to "Back to Restaurants", restaurants_path %></p>
   <footer>
+    <!-- Add navigation options within nav tag -->
+    <p>
+      <%= link_to "Back to Restaurants", restaurants_path %>
+    </p>
     &copy; 2016 - Carlos Lozano, Mike Bowman, Steve O'Neil - Bitmaker Labs, Toronto
   </footer>
 </body>
