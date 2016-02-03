@@ -1,7 +1,6 @@
-<h1>Seat Here | Toronto's Most Wanted</h1>
 <p>Find a restaurant through our curated selection.</p>
-<%= @restaurants.each do |restaurant| %>
+<% @restaurants.each do |restaurant| %>
   <ul>
-    <li><%= restaurant.name %></li>
+    <li><%= link_to restaurant.name, restaurant_path(@restaurant) %></li>
   </ul>
 <% end %>
