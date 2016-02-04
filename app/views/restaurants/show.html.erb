@@ -27,17 +27,19 @@
 <%= "Reservations for #{@restaurant.name}" %>
 <br>
 
-<div>
+<div class="reservations">
   <p>
-  <% @restaurant.reservations.each do |reservation| %>
-  <ul>
-    <li>Reservation for: <%= reservation.user %></li>
-    <li>Reservation number: <%= reservation.id %></li>
-    <li>Party of: <%= reservation.party_size %></li>
-    <li>At <%= reservation.time %></li>
-  </ul>
-<% end %>
-</p>
+    <% @restaurant.reservations.each do |reservation| %>
+      <% if reservation.user != nil %>
+        <ul>
+          <li>Reservation for: <%= reservation.user.first_name %> <%= reservation.user.last_name %></li>
+          <li>Reservation number: <%= reservation.id %></li>
+          <li>Party of: <%= reservation.party_size %></li>
+          <li>At <%= reservation.time %></li>
+        </ul>
+      <% end %>
+    <% end %>
+  </p>
 </div>
 
 <br>
