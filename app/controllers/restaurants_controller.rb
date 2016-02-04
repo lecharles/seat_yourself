@@ -7,6 +7,6 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     # Add reservation.new to this page because reservation form is on the restaurant#show page
     # For the moment
-    @reservation = Reservation.new
+    @reservation = @restaurant.reservations.build
   end
 end
