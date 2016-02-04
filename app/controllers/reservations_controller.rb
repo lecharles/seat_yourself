@@ -11,6 +11,7 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = @restaurant.reservations.build(reservation_params)
+    @reservation.user = current_user
 
     if @reservation.save
       redirect_to restaurant_path(@restaurant), notice: "Reservations created successfully!"
