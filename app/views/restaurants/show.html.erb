@@ -1,6 +1,6 @@
 <h2><%= @restaurant.name %></h2>
 
-<!-- Calling form for @reservation, created on the restaurant controller -->
+<!-- Calling form for @reservation, created on the restaurant controller, referring to @restaurant -->
 <%= form_for ([@restaurant, @reservation]) do |f| %>
   <%= f.label :party_size %>
   <%= f.number_field :party_size %>
@@ -12,7 +12,6 @@
   <%= f.time_field :time_field %>
 
   <%= f.submit "Submit Reservation" %>
-<!-- Form built, unsure how to split date and time, as well as problems in reservation controller -->
 
 <% end %>
 
@@ -22,10 +21,12 @@
 <div>
   <p>
   <% @restaurant.reservations.each do |reservation| %>
-  <%= "Reservation #: #{reservation.id}  " %>
-  <%= "User: #{reservation.user}  " %>
-  <%= "Party Size: #{reservation.party_size}  " %>
-  <%= "Time: #{reservation.time}  " %>
+  <ul>
+    <li>Reservation for: <%= reservation.user %></li>
+    <li>Reservation number: <%= reservation.id %></li>
+    <li>Party of: <%= reservation.party_size %></li>
+    <li>At <%= reservation.time %></li>
+  </ul>
 <% end %>
 </p>
 </div>
