@@ -17,7 +17,7 @@ class ReservationsController < ApplicationController
       redirect_to restaurant_path(@restaurant), notice: "Reservations created successfully!"
     else
       # Won't work with render, works with redirect_to. Not sure why
-      redirect_to restaurant_path(@restaurant)
+      redirect_to restaurant_path(@restaurant), notice: "Reservation creation failed. Please try again"
     end
   end
 
