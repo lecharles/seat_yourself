@@ -15,10 +15,14 @@
   </header>
   <br>
   <section>
-    <code> <a href="#"> Login</a><br></code>
+    <code>
+    <%= link_to "Login", new_session_path, class: "session_button" %>
+    </code>
   </section>
   <section>
-    <code> <a href="#"> Sign Up</a><br></code>
+    <code>
+    <%= link_to "Sign Up", new_user_path, class: "session_button" %>
+    </code>
   </section>
 
   <div class="main_content">
@@ -30,7 +34,9 @@
   <footer>
     <!-- Add navigation options within nav tag -->
     <p>
+      <% unless current_page?('/restaurants') %>
       <%= link_to "Back to Restaurants", restaurants_path %>
+      <% end %>
     </p>
     &copy; 2016 - Carlos Lozano, Mike Bowman, Steve O'Neil - Bitmaker Labs, Toronto
   </footer>
