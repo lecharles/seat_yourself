@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+body {
+  background-color: #A7C5E8;
+}
+code {
+  background: #2db34a;
+  border-radius: 6px;
+  color: #555;
+  font: 20px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: block;
+  padding: 15px 15px;
+  text-align: center;
+}
+header,
+footer {
+  margin: 1.5% 1.5% 1.5% 1.5%;
+}
+section {
+  margin: 1.5% 2.5% 1.5% 0%;
+  float: left;
+  width: 291px;
+}
+
+header {
+  float: left;
+  width: 80%;
+}
+
+div {
+  clear: both;
+}
