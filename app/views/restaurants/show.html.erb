@@ -2,16 +2,25 @@
 
 <!-- Calling form for @reservation, created on the restaurant controller, referring to @restaurant -->
 <%= form_for ([@restaurant, @reservation]) do |f| %>
-  <%= f.label :party_size %>
-  <%= f.number_field :party_size %>
 
-  <%= f.label :date_field %>
-  <%= f.date_field :date_field %>
+  <div class="field">
+    <%= f.label :party_size %>
+    <%= f.number_field :party_size %>
+  </div>
 
-  <%= f.label :time_field %>
-  <%= f.time_field :time_field %>
+  <div class="field">
+    <%= f.label :date_field, "Date" %>
+    <%= f.date_field :date_field %>
+  </div>
 
-  <%= f.submit "Submit Reservation" %>
+  <div class="field">
+    <%= f.label :time_field, "Time" %>
+    <%= f.time_field :time_field %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit Reservation" %>
+  </div>
 
 <% end %>
 
