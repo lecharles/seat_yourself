@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SeatYourself</title>
+  <title>Be Our Guest</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <header>
-    <h1 class="app_title">SeatYourself</h1>
+    <!-- <h1 class="app_title">SeatYourself</h1> -->
+    <img src="http://technologytherapy.com/wp-content/uploads/2014/03/guest.jpg" alt="Be Our Guest">
     <!-- Add login/sign up options to header - wrap in a div or something -->
     <!-- Add navigation options to header and footer - nav tag-->
   </header>
+  <br>
+  <section>
+    <code> <a href="#"> Login</a><br></code>
+  </section>
+  <section>
+    <code> <a href="#"> Sign Up</a><br></code>
+  </section>
 
   <div class="main_content">
+    <br>
     <%= yield %>
   </div>
 
+  <br>
   <footer>
     <!-- Add navigation options within nav tag -->
     <p>
