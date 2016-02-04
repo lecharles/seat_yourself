@@ -2,7 +2,8 @@
 
 <!-- Calling form for @reservation, created on the restaurant controller, referring to @restaurant -->
 <!-- HIDE FORM WHEN NO current_user -->
-<%= form_for ([@restaurant, @reservation]) do |f| %>
+<% if current_user %>
+  <%= form_for ([@restaurant, @reservation]) do |f| %>
 
   <div class="field">
     <%= f.label :party_size %>
@@ -23,14 +24,15 @@
     <%= f.submit "Create Reservation" %>
   </div>
 
+  <% end %>
 <% end %>
 
-<%= "Reservations for #{@restaurant.name}" %>
 <br>
 <!-- RESERVATION CREATION FAILING, UNSURE WHY -->
-<div class="reservations">
-  <p>
-    <% if current_user != nil %>
+<% if current_user != nil %>
+  <div class="reservations">
+    <p>
+      <%= "Reservations for #{@restaurant.name}" %>
       <% current_user.reservations.where(restaurant_id: @restaurant).each do |reservation| %>
         <ul>
           <li>Reservation for: <%= reservation.user.first_name %> <%= reservation.user.last_name %></li>
@@ -39,8 +41,6 @@
           <li>At <%= reservation.time.strftime("%I:%M %p") %> on <%= reservation.time.strftime("%A, %B %d %Y") %></li>
         </ul>
       <% end %>
-    <% end %>
-  </p>
-</div>
-
-<br>
+    </p>
+  </div>
+<% end %>
