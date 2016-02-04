@@ -29,7 +29,7 @@
 
 <div class="reservations">
   <p>
-    <% @restaurant.reservations.each do |reservation| %>
+    <% current_user.reservations.where(restaurant_id: @restaurant).each do |reservation| %>
       <% if reservation.user != nil %>
         <ul>
           <li>Reservation for: <%= reservation.user.first_name %> <%= reservation.user.last_name %></li>
