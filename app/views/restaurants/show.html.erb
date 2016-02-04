@@ -10,12 +10,12 @@
 
   <div class="field">
     <%= f.label :date_field, "Date" %>
-    <%= f.date_field :date_field %>
+    <%= f.date_field :date_field, value: Time.now.strftime("%Y-%m-%d") %>
   </div>
 
   <div class="field">
     <%= f.label :time_field, "Time" %>
-    <%= f.time_field :time_field %>
+    <%= f.time_field :time_field, value: Time.now.strftime("%H:%M") %>
   </div>
 
   <div class="actions">
