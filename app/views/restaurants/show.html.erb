@@ -1,6 +1,7 @@
 <h2><%= @restaurant.name %></h2>
 
 <!-- Calling form for @reservation, created on the restaurant controller, referring to @restaurant -->
+<!-- HIDE FORM WHEN NO current_user -->
 <%= form_for ([@restaurant, @reservation]) do |f| %>
 
   <div class="field">
@@ -26,7 +27,7 @@
 
 <%= "Reservations for #{@restaurant.name}" %>
 <br>
-
+<!-- RESERVATION CREATION FAILING, UNSURE WHY -->
 <div class="reservations">
   <p>
     <% if current_user != nil %>
