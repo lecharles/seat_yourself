@@ -2,6 +2,9 @@ class Reservation < ActiveRecord::Base
   belongs_to :user
   belongs_to :restaurant
 
+  validates :party_size, numericality: { only_integer: true }
+  validates :time, :user_id, :restaurant_id, presence: true
+
   # Implement DateTime splitting and rejoining
   before_save :convert_to_datetime
 

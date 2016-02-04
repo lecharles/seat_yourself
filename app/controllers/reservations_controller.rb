@@ -16,7 +16,8 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to restaurant_path(@restaurant), notice: "Reservations created successfully!"
     else
-      render restaurant_path(@restaurant)
+      # Won't work with render, works with redirect_to. Not sure why
+      redirect_to restaurant_path(@restaurant)
     end
   end
 
