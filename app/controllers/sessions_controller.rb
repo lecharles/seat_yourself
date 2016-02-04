@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to restaurants_path, notice: "You Are Logged in!"
+      redirect_to root_path, notice: "You Are Logged in!"
     else
-      render "new"
+      render :new
     end
   end
 

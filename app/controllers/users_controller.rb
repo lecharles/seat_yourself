@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       redirect_to restaurants_path, notice: "Signed up successfully!"
-    else :new
+    else render :new
     end
   end
 
