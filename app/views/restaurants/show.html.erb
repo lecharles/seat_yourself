@@ -29,8 +29,8 @@
 
 <div class="reservations">
   <p>
-    <% current_user.reservations.where(restaurant_id: @restaurant).each do |reservation| %>
-      <% if reservation.user != nil %>
+    <% if current_user != nil %>
+      <% current_user.reservations.where(restaurant_id: @restaurant).each do |reservation| %>
         <ul>
           <li>Reservation for: <%= reservation.user.first_name %> <%= reservation.user.last_name %></li>
           <li>Reservation number: <%= reservation.id %></li>
