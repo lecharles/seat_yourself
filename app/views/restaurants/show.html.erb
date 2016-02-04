@@ -1,4 +1,21 @@
-<h2>Restaurants#show</h2>
+<h2><%= @restaurant.name %></h2>
+
+<!-- Calling form for @reservation, created on the restaurant controller -->
+<%= form_for ([@restaurant, @reservation]) do |f| %>
+  <%= f.label :party_size %>
+  <%= f.number_field :party_size %>
+
+  <%= f.label :time, "Date" %>
+  <%= f.date_field :time %>
+
+  <%= f.label :time %>
+  <%= f.time_field :time %>
+
+  <%= f.submit "Submit Reservation" %>
+<!-- Form built, unsure how to split date and time, as well as problems in reservation controller -->
+
+<% end %>
+
 <%= "Reservations for #{@restaurant.name}" %>
 <br>
 
