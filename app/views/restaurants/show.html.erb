@@ -35,7 +35,7 @@
           <li>Reservation for: <%= reservation.user.first_name %> <%= reservation.user.last_name %></li>
           <li>Reservation number: <%= reservation.id %></li>
           <li>Party of: <%= reservation.party_size %></li>
-          <li>At <%= reservation.time %></li>
+          <li>At <%= reservation.time.strftime("%I:%M %p") %> on <%= reservation.time.strftime("%A, %B %d %Y") %></li>
         </ul>
       <% end %>
     <% end %>
