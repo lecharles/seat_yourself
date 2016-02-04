@@ -25,19 +25,20 @@ code {
   padding: 15px 15px;
   text-align: center;
 }
-header,
-footer {
-  margin: 1.5% 1.5% 1.5% 1.5%;
-}
-section {
-  margin: 1.5% 2.5% 1.5% 0%;
-  float: left;
-  width: 291px;
-}
 
 header {
   float: left;
   width: 80%;
+}
+
+header,
+footer {
+  margin: 1.5% 1.5% 1.0% 1.5%;
+}
+section {
+  margin: 0% 0% 1.5% 1.5%;
+  float: left;
+  width: 288px;
 }
 
 div {
