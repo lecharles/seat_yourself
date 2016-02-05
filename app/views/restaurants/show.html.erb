@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :time_field, "Time" %>
-    <%= f.time_field :time_field, value: "19:00" %>
+    <%= select_tag(:time_field, options_for_select([["1:00 PM", 13], ["2:00 PM", 14], ["3:00 PM", 15], ["4:00 PM", 16], ["5:00 PM", 17], ["6:00 PM", 18], ["7:00 PM", 19], ["8:00 PM", 20]])) %>
   </div>
 
   <div class="actions">
@@ -29,7 +29,6 @@
 <% end %>
 
 <br>
-<!-- RESERVATION CREATION FAILING, UNSURE WHY -->
 <% if current_user %>
   <div class="reservations">
     <p>
