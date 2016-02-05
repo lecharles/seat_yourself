@@ -3,11 +3,10 @@ class Reservation < ActiveRecord::Base
   belongs_to :restaurant
 
   validates :party_size, numericality: { greater_than: 0 }
-  validates :time_field, :date_field, presence: true
-  # Line 6 ^ is causing issues with validations. I'll work on it more at home'
+  validates :time, presence: true
 
   # Implement DateTime splitting and rejoining
-  before_save :convert_to_datetime
+  before_validation :convert_to_datetime
 
   def date_field
     time.strftime("%d/%m/%Y") if time.present?
