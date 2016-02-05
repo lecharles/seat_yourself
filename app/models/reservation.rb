@@ -18,13 +18,21 @@ class Reservation < ActiveRecord::Base
   end
 
   def date_field=(date)
+    if date_field.present?
     # Change back to datetime friendly format
-    @date_field = Date.parse(date).strftime("%Y-%m-%d")
+      @date_field = Date.parse(date).strftime("%Y-%m-%d")
+    else
+      @date_field = Date.today
+    end
   end
 
   def time_field=(time)
+    if time_field.present?
     # Change back to datetime friendly format
-    @time_field = Time.parse(time).strftime("%H:%M:%S")
+      @time_field = Time.parse(time).strftime("%H:%M:%S")
+    else
+      @time_field = Time.now
+    end
   end
 
   def convert_to_datetime
