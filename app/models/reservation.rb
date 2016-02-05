@@ -22,7 +22,7 @@ class Reservation < ActiveRecord::Base
     # Change back to datetime friendly format
       @date_field = Date.parse(date).strftime("%Y-%m-%d")
     else
-      @date_field = Date.today
+      @date_field = Date.tomorrow
     end
   end
 
@@ -31,7 +31,7 @@ class Reservation < ActiveRecord::Base
     # Change back to datetime friendly format
       @time_field = Time.parse(time).strftime("%H:%M:%S")
     else
-      @time_field = Time.now
+      @time_field = "19:00:00"
     end
   end
 
