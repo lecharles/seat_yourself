@@ -1,5 +1,5 @@
   class RestaurantsController < ApplicationController
-  before_action :load_reservations
+  before_action :load_reservations, only: :show
 
   def index
     @restaurants = Restaurant.all
