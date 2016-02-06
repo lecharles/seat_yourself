@@ -10,7 +10,4 @@ class Restaurant < ActiveRecord::Base
     @total_diners
   end
 
-  def test
-    "test"
-  end
 end
