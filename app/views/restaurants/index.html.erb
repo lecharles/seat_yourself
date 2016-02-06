@@ -2,7 +2,9 @@
 <div class="block-restaurants" >
 <% @restaurants.each do |restaurant| %>
     <ul class="list-restaurants">
-      <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+      <%= link_to restaurant_path(restaurant) do %>
+        <li><%= restaurant.name %></li>
+      <% end %>
     </ul>
 <% end %>
 </div>
