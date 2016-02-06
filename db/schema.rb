@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20160206200009) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "capacity"
     t.integer  "owner_id"
   end
 
