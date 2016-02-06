@@ -1,6 +1,8 @@
 <p>Find a restaurant through our curated selection.</p>
-<% @restaurants.each do |restaurant| %>
-  <ul>
-    <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
-  </ul>
-<% end %>
+<div class="block-restaurants" >
+  <% @restaurants.each do |restaurant| %>
+      <ul class="list-restaurants">
+        <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+      </ul>
+  <% end %>
+</div>

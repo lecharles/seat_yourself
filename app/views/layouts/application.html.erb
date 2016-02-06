@@ -8,22 +8,17 @@
 </head>
 <body>
   <header>
-    <!-- <h1 class="app_title">SeatYourself</h1> -->
-    <img src="http://technologytherapy.com/wp-content/uploads/2014/03/guest.jpg" alt="Be Our Guest">
-    <!-- Add login/sign up options to header - wrap in a div or something -->
-    <!-- Add navigation options to header and footer - nav tag-->
+    <nav>
+        <h1 class="logo"><%= link_to 'Be Our', restaurants_path %> Guest</h1>
+      <p class="userinfo">
+        <% if current_user %>
+        Signed in as <%= current_user.email %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+        <% else %>
+        <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
+        <% end %>
+      </p>
+    </nav>
   </header>
-  <br>
-  <section>
-    <code>
-    <%= link_to "Login", new_session_path, class: "session_button" %>
-    </code>
-  </section>
-  <section>
-    <code>
-    <%= link_to "Sign Up", new_user_path, class: "session_button" %>
-    </code>
-  </section>
 
   <% if flash[:notice] %>
     <p id="notice"><%= flash[:notice] %></p>
@@ -33,27 +28,33 @@
     <p id="alert"><%= flash[:alert] %></p>
   <% end %>
 
-  <div class="main_content">
-    <br>
+  <div class="container">
     <%= yield %>
   </div>
 
-  <p class="userinfo">
-        <% if current_user %>
-          Signed in as <%= current_user.email %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
-        <% else %>
-          <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
-        <% end %>
-  </p>
-  <br>
   <footer>
-    <!-- Add navigation options within nav tag -->
     <p>
       <% unless current_page?('/restaurants') %>
-      <%= link_to "Back to Restaurants", restaurants_path %>
+      <%= link_to "Back to Restaurant List", restaurants_path %>
       <% end %>
     </p>
     &copy; 2016 - Carlos Lozano, Mike Bowman, Steve O'Neil - Bitmaker Labs, Toronto
   </footer>
 </body>
 </html>
+
+<!-- comment in code:
+  <img src="http://technologytherapy.com/wp-content/uploads/2014/03/guest.jpg" alt="Be Our Guest">
+  Add login/sign up options to header - wrap in a div or something
+  Add navigation options to header and footer - nav tag
+  <section>
+  <code>
+  < link_to "Login", new_session_path, class: "session_button" >
+  </code>
+  </section>
+  <section>
+  <code>
+  < link_to "Sign Up", new_user_path, class: "session_button" >
+  </code>
+  </section> -->
+  <!-- Add navigation options within nav tag -->

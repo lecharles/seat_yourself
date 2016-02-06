@@ -1,0 +1,253 @@
+/*
+===================================================
+SET UP BOX-CONTENT MODEL
+===================================================
+*/
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  }
+
+/*
+===================================================
+TESTING & ADAPTING ICECRM Styles into RAINFOREST
+===================================================
+*/
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: #fff;
+  font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+header {
+  background-color: white;
+  margin: 0 auto;
+  width: 75%;
+  position: relative;
+}
+
+nav {
+  position: relative;
+}
+
+.container {
+  background: #b9e1d8;
+  color: #FFF3EC;
+  width: 75%;
+  margin: 0 auto;
+  height: 100%;
+  text-align: center;
+}
+
+.logo {
+  border-top: 7.5px solid rgba(100, 136, 128, 0.3);
+  width: 23%;
+  margin: 0 auto;
+  padding-bottom: 5px;
+  display: inline-block;
+  text-align: center;
+}
+
+.userinfo {
+  border-top: 7.5px solid rgba(100, 136, 128, 0.3);
+  display: inline-block;
+  float: right;
+  text-align: center;
+}
+
+
+.error_messages {
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+
+/*.title {
+  text-align: center;
+  padding-top: 25px;
+}*/
+
+footer{
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 50px;
+  color: #648880;
+}
+
+/*.footer p {
+  margin-top: 30px;
+  opacity: 0.45;
+  font-size: 0.65em;
+  color: #fff
+}*/
+
+/*
+  ========================================
+  Typography
+  ========================================
+*/
+
+h1, p {
+  color: #648880;
+  margin-bottom: 22px;
+}
+h1 {
+  font-size: 36px;
+  line-height: 44px;
+}
+strong {
+  font-weight: 400;
+}
+
+/*
+  ========================================
+  List of restaurantes / Nav
+  ========================================
+*/
+/*nav {
+  width: 436px;
+  margin: 0 auto;
+  text-align: center;
+}*/
+.block-restaurants {
+  margin: 0 auto;
+  width: 90%;
+  overflow: auto;
+}
+
+.list-restaurants {
+  display: inline-block;;
+  color: #648880;
+  text-decoration: none;
+  border: 1px solid #D6D6D6;
+  background-color: white;
+  padding: 1.2%;
+  width: 33%;
+  margin: 0 auto;
+  /*margin-right: -4px;*/
+  float: left;
+}
+/*
+  ========================================
+  Links
+  ========================================
+*/
+a {
+  color: #906449;
+  text-decoration: none;
+}
+a:hover {
+  color: #a9b2b9;
+}
+
+/*
+  ========================================
+  Form (new contact for now...)
+  ========================================
+*/
+
+/*form {
+  width: 336px;
+  margin: 0 auto;
+  padding: 5px;
+}*/
+
+/*fieldset {
+  text-align: center;
+}*/
+
+/*.login{
+  margin: 15px 0;
+}*/
+
+.field {
+  margin: 0;
+}
+.field input{
+  border-radius: 5px;
+  display: block;
+  border: 0.5px solid #D6D6D6;
+  background-color: white;
+  padding: 1%;
+  text-align: center;
+  width: 25%;
+  margin: 0 auto;
+}
+
+input {
+  font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+input[type=submit] {
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-weight: 400;
+  letter-spacing: .5px;
+  margin: 0 auto;
+  text-transform: uppercase;
+  border: 1px solid #fff;
+  padding: 1% 2%;
+  width: 25%;
+  background: green;
+}
+input[type=submit]:hover {
+  background: #fff;
+  color: green;
+}
+
+#notice {
+  background-color: green;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 75%;
+}
+
+#alert {
+  background-color: red;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 75%;
+}
+
+/*
+  ========================================
+  Table (All Contacts)
+  ========================================
+*/
+/*table {
+  width: 950px;
+  margin: 0 auto;
+  text-align: left;
+}*/
+
+/*.table-columns {
+  margin-right: 10px;
+}*/
+
+/*
+  ========================================
+  Show [each] Contact
+  ========================================
+*/
+/*.show-contact {
+  width: 500px;
+  margin: 0 auto;
+}*/
