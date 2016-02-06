@@ -4,7 +4,7 @@ class Restaurant < ActiveRecord::Base
 
   def total_diners
     @total_diners = 0
-      self.reservations.each do |res|
+      Reservation.all.where(restaurant_id: self.id).each do |res|
         @total_diners += res.party_size
       end
     @total_diners
