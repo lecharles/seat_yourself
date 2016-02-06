@@ -10,4 +10,8 @@ class Restaurant < ActiveRecord::Base
     @total_diners
   end
 
+  def available?
+    capacity > total_diners ? true : false
+  end
+
 end
