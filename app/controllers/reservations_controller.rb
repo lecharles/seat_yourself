@@ -13,14 +13,20 @@ class ReservationsController < ApplicationController
     @reservation = @restaurant.reservations.build(reservation_params)
     @reservation.user = current_user
 
-    temp_diners = @restaurant.total_diners + @reservation.party_size
+    temp_diners = @restaurant.total_diners_at_time(@reservation.time) + @reservation.party_size
 
-    if @restaurant.capacity >= temp_diners && @reservation.save
-      redirect_to restaurant_path(@restaurant), notice: "Reservations created successfully!"
+    if @restaurant.total_diners_at_time(@reservation.time) + temp_diners <= capacity
+      if @reservation.save
+        redirect_to restaurant_path(@restaurant), notice: "Reservations created successfully!"
+      else
+        # Won't work with render, works with redirect_to. Not sure why
+        redirect_to restaurant_path(@restaurant), notice: "Reservation creation failed. Please try again"
+      end
     else
-      # Won't work with render, works with redirect_to. Not sure why
-      redirect_to restaurant_path(@restaurant), notice: "Reservation creation failed. Please try again"
+      flash[:alert] = "There are no seats available for that time. Please try again."
+      render :new
     end
+
   end
 
   private
