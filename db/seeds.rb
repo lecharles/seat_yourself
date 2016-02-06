@@ -5,13 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Restaurant.create(name: "Canoe")
+Restaurant.create(name: "Canoe", user_id: 1)
 
-Restaurant.create(name: "Banjara")
+Restaurant.create(name: "Banjara", user_id: 2)
 
-Restaurant.create(name: "Khao San Road")
+Restaurant.create(name: "Khao San Road", user_id: 1)
 
-Restaurant.create(name: "Pizzeria Libretto")
+Restaurant.create(name: "Pizzeria Libretto", user_id: 2)
 
 User.create(
   first_name: "Carlos",
