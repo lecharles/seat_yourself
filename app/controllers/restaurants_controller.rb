@@ -17,7 +17,7 @@
   end
 
   def create
-    @restaurant = Restaurant.new(user_params)
+    @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
       redirect_to restaurants_path, notice: "Restaurant successfully listed!"
     else render :new
@@ -30,4 +30,9 @@
   def load_reservations
     @reservations = Restaurant.find(params[:id]).reservations
   end
+
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :capacity, :owner_id)
+  end
+
 end
