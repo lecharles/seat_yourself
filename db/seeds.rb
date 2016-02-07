@@ -6,13 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Restaurant.create(name: "Canoe", owner_id: 5, capacity: 12)
+Restaurant.create(name: "Eat Fresh be Healthy", owner_id: 5, capacity: 50)
 
-Restaurant.create(name: "Banjara", owner_id: 5, capacity: 12)
-
-Restaurant.create(name: "Khao San Road", owner_id: 5, capacity: 12)
-
-Restaurant.create(name: "Pizzeria Libretto", owner_id: 5, capacity: 12
+# Restaurant.create(name: "Good View", owner_id: 5, capacity: 15)
+#
+# Restaurant.create(name: "Nota Bene", owner_id: 5, capacity: 20)
+#
+# Restaurant.create(name: "Lee Garden", owner_id: 5, capacity: 25)
 
 # User.create(
 #   first_name: "Carlos",
