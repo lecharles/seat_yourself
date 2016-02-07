@@ -1,10 +1,15 @@
 <p>Find a restaurant through our curated selection.</p>
-<div class="block-restaurants" >
+<div class="restaurants-block" >
 <% @restaurants.each do |restaurant| %>
-    <ul class="list-restaurants">
-      <%= link_to restaurant_path(restaurant) do %>
-        <li><%= restaurant.name %></li>
-      <% end %>
-    </ul>
+      <div class=restaurant-box>
+        <ul>
+          <%= link_to restaurant_path(restaurant) do %>
+            <li><%= restaurant.name %></li>
+          <% end %>
+        </ul>
+        <div class="restaurant-img">
+          <img src="http://oliverbonacini.com/getmedia/3c2f09f3-aaa6-4abd-a7bb-8f3ab8871710/imgCanoeBanner2.aspx?width=672&height=364" alt="Canoe">
+        </div>
+      </div>
 <% end %>
 </div>
