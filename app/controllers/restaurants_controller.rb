@@ -12,6 +12,19 @@
     @reservation = @restaurant.reservations.build
   end
 
+  def new
+    @restaurant = Restaurant.new
+  end
+
+  def create
+    @restaurant = Restaurant.new(user_params)
+    if @restaurant.save
+      redirect_to restaurants_path, notice: "Restaurant successfully listed!"
+    else render :new
+    end
+  end
+
+
   private
 
   def load_reservations

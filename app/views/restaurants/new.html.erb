@@ -1,0 +1,22 @@
+<h1>Enter a New Restaurant Listing</h1>
+
+
+<% if current_user %>
+  <%= form_for @restaurant, url: {action: "create"} do |f| %>
+    <div class="field">
+      <%= f.text_field :name, placeholder: 'Restaurant Name' %>
+    </div>
+
+    <div class="field">
+      <%= f.number_field :capacity, placeholder: 'eg. 90' %>
+    </div>
+
+    <div class="field">
+      <%= f.number_field :owner_id, placeholder: 'Owner #' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+<% end %>
