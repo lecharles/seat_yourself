@@ -101,7 +101,7 @@ footer{
   ========================================
 */
 
-h1, p {
+h1, h2, p {
   color: #648880;
   margin-bottom: 22px;
 }
@@ -111,6 +111,10 @@ h1 {
 }
 strong {
   font-weight: 400;
+}
+
+h2 {
+  font-size: 20px;
 }
 
 /*
@@ -135,7 +139,7 @@ strong {
   text-decoration: none;
   border: 1px solid #D6D6D6;
   background-color: white;
-  padding: 1.2%;
+  padding: 3%;
   width: 33%;
   margin: 0 auto;
   /*margin-right: -4px;*/
@@ -176,6 +180,7 @@ a:hover {
 
 .field {
   margin: 0;
+  text-align: center;
 }
 .field input{
   border-radius: 5px;
@@ -225,6 +230,30 @@ input[type=submit]:hover {
   text-align: center;
   margin: 0 auto;
   width: 75%;
+}
+
+.reservation-title {
+    margin-top: 5%;
+}
+.reservations {
+  margin-top: 5%;
+  /*margin-bottom: 5%;*/
+  /*background-color: white;*/
+  margin: 0 auto;
+  width: 30%;
+  /*padding: 1px;*/
+  /*border: 1px solid #fff;*/
+
+}
+
+.reservations li {
+  color: #906449;
+  font-size: 0.9em;
+}
+
+.reservations ul{
+  margin-bottom: 15px;
+  background-color: white;
 }
 
 /*

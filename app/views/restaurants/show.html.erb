@@ -1,46 +1,48 @@
-<h2><%= @restaurant.name %></h2>
+<h1>At <%= @restaurant.name %></h1>
 
-<!-- Calling form for @reservation, created on the restaurant controller, referring to @restaurant -->
-<!-- HIDE FORM WHEN NO current_user -->
+<h2>Seats currently available: <%= @restaurant.capacity - @restaurant.total_diners %></h2>
+
 <% if current_user %>
   <%= form_for ([@restaurant, @reservation]) do |f| %>
+    <div class="field">
+      <%= f.number_field :party_size, placeholder: 'Party Size' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :party_size %>
-    <%= f.number_field :party_size %>
-  </div>
+    <div class="field">
+      <!-- <%= f.label :date_field, "Date" %> -->
+      <%= f.date_field :date_field, value: Time.now.strftime("%Y-%m-%d") %>
+    </div>
 
-  <div class="field">
-    <%= f.label :date_field, "Date" %>
-    <%= f.date_field :date_field, value: Time.now.strftime("%Y-%m-%d") %>
-  </div>
+    <div class="field">
+      <!-- <%= f.label :time_field, "Time" %> -->
+      <%= f.select(:time_field, options_for_select([["1:00 PM", "13:00"], ["2:00 PM", "14:00"], ["3:00 PM", "15:00"], ["4:00 PM", "16:00"], ["5:00 PM", "17:00"], ["6:00 PM", "18:00"], ["7:00 PM", "19:00"], ["8:00 PM", "20:00"]])) %>
+    </div>
 
-  <div class="field">
-    <%= f.label :time_field, "Time" %>
-    <%= f.time_field :time_field, value: "19:00" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Create Reservation" %>
-  </div>
-
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   <% end %>
 <% end %>
 
-<br>
-<!-- RESERVATION CREATION FAILING, UNSURE WHY -->
 <% if current_user %>
+  <div class="reservation-title">
+    <h2><%= "Your Reservation(s) for #{@restaurant.name}:" %></h2>
+  </div>
   <div class="reservations">
     <p>
-      <%= "Reservations for #{@restaurant.name}" %>
       <% current_user.reservations.where(restaurant_id: @restaurant).each do |reservation| %>
         <ul>
-          <li>Reservation for: <%= reservation.user.first_name %> <%= reservation.user.last_name %></li>
+          <li><%= reservation.time.strftime("%A, %B %d %Y") %> at <%= reservation.time.strftime("%I:%M %p") %>.</li>
+          <li>A very nice table for a party of: <%= reservation.party_size %></li>
+          <li>Booked for: <%= reservation.user.first_name %> <%= reservation.user.last_name %></li>
           <li>Reservation number: <%= reservation.id %></li>
-          <li>Party of: <%= reservation.party_size %></li>
-          <li>At <%= reservation.time.strftime("%I:%M %p") %> on <%= reservation.time.strftime("%A, %B %d %Y") %></li>
         </ul>
       <% end %>
     </p>
   </div>
 <% end %>
+
+
+
+<!-- Calling form for @reservation, created on the restaurant controller, referring to @restaurant -->
+<!-- HIDE FORM WHEN NO current_user -->
