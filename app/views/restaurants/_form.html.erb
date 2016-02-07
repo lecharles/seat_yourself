@@ -1,0 +1,36 @@
+
+<% if current_user.id == @restaurant.owner_id %>
+
+  <%= form_for @restaurant, url: {action: "update"} do |f| %>
+
+    <% if @restaurant.errors.any? %>
+      <div class="error_explanation">
+        <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant listing from being saved:</h2>
+
+        <ul>
+          <% @restaurant.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.number_field :capacity %>
+    </div>
+
+    <div>
+      <%= f.hidden_field :owner_id, value: current_user.id %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+  <% end %>
+
+<% end %>

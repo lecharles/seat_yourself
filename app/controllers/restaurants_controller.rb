@@ -24,6 +24,23 @@
     end
   end
 
+  def edit
+    @restaurant = Restaurant.find(params[:id])
+  end
+
+  def update
+    @restaurant = Restaurant.find(params[:id])
+    if @restaurant.update_attributes(restaurant_params)
+      redirect_to restaurants_path(@restaurant.id), notice: "Restaurant successfully updated!"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    #code
+  end
+
 
   private
 

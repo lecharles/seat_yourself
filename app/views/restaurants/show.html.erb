@@ -1,4 +1,8 @@
 <h1>At <%= @restaurant.name %></h1>
+<% if @restaurant.owner_id == current_user.id%>
+  <%= link_to "Edit restaurant listing?", edit_restaurant_path(@restaurant) %>
+  <p></p>
+<% end %>
 
 <h2>Seats currently available: <%= @restaurant.capacity - @restaurant.total_diners %></h2>
 
