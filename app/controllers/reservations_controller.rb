@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :load_restaurant
-  before_action :check_availability?, only: :create
+  
 
   def show
     @reservations = Reservation.all
