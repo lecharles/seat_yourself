@@ -23,7 +23,7 @@
 
     <div class="field">
       <!-- <%= f.label :date_field, "Date" %> -->
-      <%= f.date_field :date_field, value: Time.now.strftime("%Y-%m-%d") %>
+      <%= f.date_field :date_field, value: @reservation.time.strftime("%Y-%m-%d") %>
     </div>
 
     <div class="field">
