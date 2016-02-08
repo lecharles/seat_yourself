@@ -1,10 +1,14 @@
 <h1>At <%= @restaurant.name %></h1>
-<% if @restaurant.owner_id == current_user.id%>
-  <%= link_to "Edit or delete restaurant listing?", edit_restaurant_path(@restaurant) %>
-  <p></p>
-<% end %>
 
 <h2>Seats currently available: <%= @restaurant.capacity - @restaurant.total_diners %></h2>
+
+<div class="restaurant-show">
+  <img src="<%= @restaurant.url %>" >
+</div>
+
+<% if !current_user %>
+<p>Please login to make a reservation.</p>
+<% end %>
 
 <% if current_user %>
   <%= form_for ([@restaurant, @reservation]) do |f| %>
@@ -17,7 +21,7 @@
       <%= f.date_field :date_field, value: Time.now.strftime("%Y-%m-%d") %>
     </div>
 
-    <div class="field">
+    <div class="field-select">
       <!-- <%= f.label :time_field, "Time" %> -->
       <%= f.select(:time_field, options_for_select([["1:00 PM", "13:00"], ["2:00 PM", "14:00"], ["3:00 PM", "15:00"], ["4:00 PM", "16:00"], ["5:00 PM", "17:00"], ["6:00 PM", "18:00"], ["7:00 PM", "19:00"], ["8:00 PM", "20:00"]])) %>
     </div>
@@ -27,6 +31,14 @@
     </div>
   <% end %>
 <% end %>
+
+<% if current_user %>
+<div class="edit-delete">
+  <% if @restaurant.owner_id == current_user.id%>
+  <%= link_to "Edit or Delete Restaurant", edit_restaurant_path(@restaurant) %>
+  <% end %>
+</div>
+<% end  %>
 
 <% if current_user %>
   <div class="reservation-title">

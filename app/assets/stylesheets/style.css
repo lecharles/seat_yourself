@@ -104,7 +104,14 @@ footer{
 h1, h2, p {
   color: #648880;
   margin-bottom: 22px;
+  margin: 0 auto;
+  /*padding: 0.1%;*/
 }
+
+.error_messages h2 {
+  color: white;
+}
+
 h1 {
   font-size: 36px;
   line-height: 44px;
@@ -238,6 +245,27 @@ input[type=submit]:hover {
   color: green;
 }
 
+.edit-delete a {
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-weight: 400;
+  letter-spacing: .5px;
+  margin: 0 auto;
+  text-transform: uppercase;
+  border: 1px solid #fff;
+  padding: 1% 2%;
+  width: 25%;
+  background: red;
+}
+.edit-delete a:hover {
+  background: #fff;
+  color: green;
+}
+
+
+
 #notice {
   background-color: green;
   color: white;
@@ -276,6 +304,54 @@ input[type=submit]:hover {
 .reservations ul{
   margin-bottom: 15px;
   background-color: white;
+}
+
+select {
+  display: block;
+  width: 336px;
+  margin: 0 auto;
+  padding:17px;
+  text-align: center;
+  color: #aaa;
+  font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.field-select select {
+   background: transparent;
+   width: 25%;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   text-align: center;
+   -webkit-appearance: none;
+ }
+
+ .field-select {
+   width: 25%;
+   height: 42px;
+   overflow: hidden;
+   margin: 0 auto;
+   /*padding: 0.5%;*/
+   /*background: url(new_arrow.png) no-repeat right #fff;*/
+   background: #fff;
+   text-align: center;
+   border: 1px solid #D6D6D6;
+   border-radius: 5px;
+}
+
+.restaurant-show {
+  margin-bottom: 1%;
+  margin-top: 1%;
+}
+
+.restaurant-show img {
+    padding: 5px;
+    border: 1px solid #fff;
+    background-color: #fff;
+    height: 300px;
 }
 
 /*
