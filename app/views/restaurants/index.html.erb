@@ -1,15 +1,17 @@
 <p>Find a restaurant through our curated selection.</p>
 <div class="restaurants-block" >
 <% @restaurants.each do |restaurant| %>
-      <div class=restaurant-box>
-        <ul>
-          <%= link_to restaurant_path(restaurant) do %>
-            <li><%= restaurant.name %></li>
-          <% end %>
-        </ul>
-        <div class="restaurant-img">
-          <img src="<%= restaurant.url %>" >
-        </div>
-      </div>
+<div class=restaurant-box>
+  <ul>
+    <%= link_to restaurant_path(restaurant) do %>
+    <li><%= restaurant.name %></li>
+    <% end %>
+  </ul>
+  <div class="restaurant-img">
+    <%= link_to restaurant_path(restaurant) do %>
+      <%= image_tag restaurant.url %>
+    <% end %>
+  </div>
+</div>
 <% end %>
 </div>
