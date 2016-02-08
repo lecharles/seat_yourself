@@ -19,16 +19,16 @@ Restaurant.create(name: "Buca", owner_id: 5, capacity: 90, url: "http://goo.gl/7
 
 Restaurant.create(name: "Eat Fresh be Healthy", owner_id: 5, capacity: 45, url: "http://goo.gl/jiD6QR")
 
-Restaurant.create(name: "Good View", owner_id: 5, capacity: 40, url: "http://goo.gl/rMAAJq")
+Restaurant.create(name: "Good View", owner_id: 5, capacity: 40, url: "http://goo.gl/t5HCUL")
 
 Restaurant.create(name: "Nota Bene", owner_id: 5, capacity: 20, url: "http://www.thestar.com/content/dam/thestar/life/2009/06/06/why_the_big_meal_isnt_dead/notabene.jpeg")
 
-Restaurant.create(name: "Lee Garden", owner_id: 5, capacity: 25, url: "http://goo.gl/WnqRxw")
+Restaurant.create(name: "Lee Garden", owner_id: 5, capacity: 25, url: "http://goo.gl/WJwRIE")
 
-User.create(
-  first_name: "Mike",
-  last_name: "Bowman",
-  password: "password",
-  password_confirmation: "password",
-  email: "mbowman2@gmail.com"
-)
+# User.create(
+#   first_name: "Mike",
+#   last_name: "Bowman",
+#   password: "password",
+#   password_confirmation: "password",
+#   email: "mbowman2@gmail.com"
+# )
