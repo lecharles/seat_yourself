@@ -44,6 +44,7 @@ header {
   left: 0;
   right: 0;
   z-index: 2;
+  height: 75px;
 }
 
 nav {
@@ -54,11 +55,10 @@ nav {
   background: #b9e1d8;
   color: #FFF3EC;
   width: 75%;
-  margin: 73px auto 0;
+  margin: 75px auto 0;
   min-height: 100%;
   text-align: center;
   padding-bottom: 22px;
-
 }
 
 .logo {
