@@ -307,6 +307,9 @@ input[type=submit]:hover {
   text-align: center;
   margin: 0 auto;
   width: 75%;
+  position: relative;
+  z-index: 2;
+  top: 9.75%;
 }
 
 .reservation-title {
