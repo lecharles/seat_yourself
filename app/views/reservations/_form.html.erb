@@ -1,0 +1,42 @@
+<h1>at <%= @restaurant.name %></h1>
+
+<h2>Seats currently available: <%= @restaurant.capacity - @restaurant.total_diners %></h2>
+
+<% if current_user %>
+  <%= form_for ([@restaurant, @reservation]) do |f| %>
+
+  <% if @reservation.errors.any? %>
+    <div class="error_explanation">
+      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+      <ul>
+        <% @reservation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+      <%= f.number_field :party_size %>
+    </div>
+
+    <div class="field">
+      <!-- <%= f.label :date_field, "Date" %> -->
+      <%= f.date_field :date_field, value: Time.now.strftime("%Y-%m-%d") %>
+    </div>
+
+    <div class="field">
+      <!-- <%= f.label :time_field, "Time" %> -->
+      <%= f.select(:time_field, options_for_select([["1:00 PM", "13:00"], ["2:00 PM", "14:00"], ["3:00 PM", "15:00"], ["4:00 PM", "16:00"], ["5:00 PM", "17:00"], ["6:00 PM", "18:00"], ["7:00 PM", "19:00"], ["8:00 PM", "20:00"]])) %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+<% end %>
+
+
+<!-- Calling form for @reservation, created on the restaurant controller, referring to @restaurant -->
+<!-- HIDE FORM WHEN NO current_user -->

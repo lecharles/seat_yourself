@@ -23,10 +23,31 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def edit
+    @reservation = Reservation.find(params[:id])
+  end
+
+  def update
+    @reservation = Reservation.find(params[:id])
+    if @reservation.update_attributes(reservation_params)
+      redirect_to restaurant_path(@restaurant), notice: "Reservation successfully updated!"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    redirect_to restaurants_path(@restaurant), notice: "Reservation successfully deleted!"
+  end
+
+
+
   private
 
   def reservation_params
-    params.require(:reservation).permit(:date_field, :time_field, :party_size, :user_id, :restaurant_id)
+    params.require(:reservation).permit(:date_field, :time_field, :party_size, :user_id, :restaurant_id, :id)
   end
 
   def load_restaurant

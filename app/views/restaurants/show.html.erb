@@ -41,6 +41,9 @@
           <li>Booked for: <%= reservation.user.first_name %> <%= reservation.user.last_name %></li>
           <li>Reservation number: <%= reservation.id %></li>
         </ul>
+          <%= link_to "Edit this reservation", edit_restaurant_reservation_path(@restaurant, reservation.id) %>
+          <br>
+          <%# link_to "Delete this reservation", reservation.id, method: :delete, data: {confirm: "Are you sure you want to delete this reservation?"} %>
       <% end %>
     </p>
   </div>
