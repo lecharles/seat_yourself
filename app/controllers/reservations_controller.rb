@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
     @restaurant = Restaurant.where(id: @reservation.restaurant_id)
 
       if @reservation.save
-        redirect_to restaurant_path(@restaurant), notice: "Reservations created successfully!"
+        redirect_to root_path, notice: "Reservations created successfully!"
       else
         # Won't work with render, works with redirect_to. Not sure why
         redirect_to root_path, notice: "Reservation creation failed. Please try again"
