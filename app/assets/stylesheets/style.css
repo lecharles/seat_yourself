@@ -190,6 +190,16 @@ a:hover {
   color: #a9b2b9;
 }
 
+.link-standard {
+  color: #648880;
+  margin-bottom: 22px;
+}
+
+.link-standard:hover {
+  color: #648880;
+  margin-bottom: 22px;
+}
+
 /*
   ========================================
   Form (new contact for now...)

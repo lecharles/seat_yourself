@@ -9,7 +9,7 @@
 <body>
   <header>
     <nav>
-        <h1 class="logo"><%= link_to 'Be Our', restaurants_path %> Guest</h1>
+        <h1 class="logo"><%= link_to 'Be Our', restaurants_path, id: "our-name" %><%= link_to " Guest", restaurants_path, class: "link-standard" %></h1>
       <p class="userinfo">
         <% if current_user %>
         Hi there, <%= current_user.first_name %>! <%= link_to "Log out", session_path("current"), :method => :delete %>
