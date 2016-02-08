@@ -1,4 +1,8 @@
 <h1>At <%= @restaurant.name %></h1>
+<% if @restaurant.owner_id == current_user.id%>
+  <%= link_to "Edit or delete restaurant listing?", edit_restaurant_path(@restaurant) %>
+  <p></p>
+<% end %>
 
 <% if current_user %>
   <%= form_for ([@restaurant, @reservation]) do |f| %>

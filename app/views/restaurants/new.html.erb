@@ -3,7 +3,6 @@
 
 <% if current_user %>
 
-
   <%= form_for @restaurant, url: {action: "create"} do |f| %>
     <div class="field">
       <%= f.text_field :name, placeholder: 'Restaurant Name' %>
@@ -13,9 +12,12 @@
       <%= f.number_field :capacity, placeholder: 'Capacity: eg. 90' %>
     </div>
 
+    <div class="field">
+      <%= f.text_field :url, placeholder: 'Picture: eg. restaurant_image.jpg' %>
+    </div>
+
     <div>
       <%= f.hidden_field :owner_id, value: current_user.id %>
-      <%# f.number_field :owner_id, placeholder: 'Owner #' %>
     </div>
 
     <div class="actions">

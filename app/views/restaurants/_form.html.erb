@@ -1,0 +1,43 @@
+
+<% if current_user.id == @restaurant.owner_id %>
+
+<p></p>
+  <%= form_for @restaurant, url: {action: "update"} do |f| %>
+
+    <% if @restaurant.errors.any? %>
+      <div class="error_explanation">
+        <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant listing from being saved:</h2>
+
+        <ul>
+          <% @restaurant.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.number_field :capacity %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :url %>
+    </div>
+
+    <div>
+      <%= f.hidden_field :owner_id, value: current_user.id %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+  <% end %>
+  <p></p>
+  <%= link_to "Delete this restaurant listing?", @restaurant, method: :delete, data: {confirm: "Are you sure you want to delete this listing (including all associated reservations)?"} %>
+
+<% end %>
