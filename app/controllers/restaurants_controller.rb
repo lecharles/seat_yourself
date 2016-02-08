@@ -20,7 +20,8 @@
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
       redirect_to restaurants_path, notice: "Restaurant successfully listed!"
-    else render :new
+    else
+      render :new
     end
   end
 

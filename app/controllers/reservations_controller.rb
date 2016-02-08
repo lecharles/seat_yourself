@@ -12,15 +12,15 @@ class ReservationsController < ApplicationController
   def create
     @reservation = @restaurant.reservations.build(reservation_params)
     @reservation.user = current_user
+    @restaurant = Restaurant.where(id: @reservation.restaurant_id)
 
-    temp_diners = @restaurant.total_diners + @reservation.party_size
+      if @reservation.save
+        redirect_to root_path, notice: "Reservations created successfully!"
+      else
+        # Won't work with render, works with redirect_to. Not sure why
+        redirect_to root_path, notice: "Reservation creation failed. Please try again"
+      end
 
-    if @restaurant.capacity >= temp_diners && @reservation.save
-      redirect_to restaurant_path(@restaurant), notice: "Reservations created successfully!"
-    else
-      # Won't work with render, works with redirect_to. Not sure why
-      redirect_to restaurant_path(@restaurant), notice: "Reservation creation failed. Please try again"
-    end
   end
 
   def edit
@@ -41,8 +41,6 @@ class ReservationsController < ApplicationController
     @reservation.destroy
     redirect_to restaurant_path(@restaurant), notice: "Reservation successfully deleted!"
   end
-
-
 
   private
 

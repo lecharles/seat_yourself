@@ -4,10 +4,9 @@ class Reservation < ActiveRecord::Base
 
   validates :party_size, numericality: { greater_than: 0 }
   validates :time, presence: true
-  # Still need to validate when no information passed to date or time
 
-  # Implement DateTime splitting and rejoining
   before_validation :convert_to_datetime
+  before_validation :check_availability?, only: :create
 
   def date_field
     time.strftime("%d/%m/%Y") if time.present?
@@ -30,4 +29,15 @@ class Reservation < ActiveRecord::Base
   def convert_to_datetime
     self.time = DateTime.parse("#{@date_field} #{@time_field}")
   end
+
+  def hour
+    self.time.hour
+  end
+
+  def check_availability?
+    occupied_seats = Reservation.where(restaurant_id: self.restaurant_id, time: self.time).sum(:party_size)
+
+    occupied_seats + self.party_size <= Restaurant.find(self.restaurant_id).capacity
+  end
+
 end
