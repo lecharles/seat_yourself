@@ -25,7 +25,7 @@
       <%= f.date_field :date_field, value: @reservation.time.strftime("%Y-%m-%d") %>
     </div>
 
-    <div class="field">
+    <div class="field-select">
       <%= f.select(:time_field, options_for_select([["1:00 PM", "13:00"], ["2:00 PM", "14:00"], ["3:00 PM", "15:00"], ["4:00 PM", "16:00"], ["5:00 PM", "17:00"], ["6:00 PM", "18:00"], ["7:00 PM", "19:00"], ["8:00 PM", "20:00"]])) %>
     </div>
 
