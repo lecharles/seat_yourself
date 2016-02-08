@@ -39,7 +39,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
-    redirect_to restaurants_path, notice: "Reservation successfully deleted!"
+    redirect_to restaurant_path(@restaurant), notice: "Reservation successfully deleted!"
   end
 
 
