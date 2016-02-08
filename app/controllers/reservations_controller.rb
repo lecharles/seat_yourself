@@ -1,7 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :load_restaurant
 
-
   def show
     @reservations = Reservation.all
   end
@@ -19,16 +18,12 @@ class ReservationsController < ApplicationController
         redirect_to restaurant_path(@restaurant), notice: "Reservations created successfully!"
       else
         # Won't work with render, works with redirect_to. Not sure why
-        redirect_to restaurant_path(@restaurant), notice: "Reservation creation failed. Please try again"
+        redirect_to root_path, notice: "Reservation creation failed. Please try again"
       end
 
   end
 
-  def check_availability?
-    occupied_seats = Reservation.where(restaurant_id: reservation.restaurant_id, time: reservation.time).sum(:party_size)
 
-    occupied_seats + self.party_size <= Restaurant.find(self.restaurant_id).capacity
-  end
 
   private
 

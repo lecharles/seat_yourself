@@ -6,7 +6,7 @@ class Reservation < ActiveRecord::Base
   validates :time, presence: true
 
   before_validation :convert_to_datetime
-
+  before_validation :check_availability?, only: :create
 
   def date_field
     time.strftime("%d/%m/%Y") if time.present?
@@ -32,6 +32,12 @@ class Reservation < ActiveRecord::Base
 
   def hour
     self.time.hour
+  end
+
+  def check_availability?
+    occupied_seats = Reservation.where(restaurant_id: self.restaurant_id, time: self.time).sum(:party_size)
+
+    occupied_seats + self.party_size <= Restaurant.find(self.restaurant_id).capacity
   end
 
 end

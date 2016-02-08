@@ -1,6 +1,5 @@
   class RestaurantsController < ApplicationController
   before_action :load_reservations, only: :show
-  before_action :check_availability?, only: :create
 
   def index
     @restaurants = Restaurant.all
@@ -21,7 +20,8 @@
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
       redirect_to restaurants_path, notice: "Restaurant successfully listed!"
-    else render :new
+    else
+      render :new
     end
   end
 
