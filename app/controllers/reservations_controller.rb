@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :load_restaurant
-  
+
 
   def show
     @reservations = Reservation.all

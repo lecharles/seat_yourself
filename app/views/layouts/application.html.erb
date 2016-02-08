@@ -12,7 +12,9 @@
         <h1 class="logo"><%= link_to 'Be Our', restaurants_path %> Guest</h1>
       <p class="userinfo">
         <% if current_user %>
-        Signed in as <%= current_user.email %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+        Signed in as <%= current_user.email%>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+        <br>
+        <%= link_to "Add a restaurant listing?", new_restaurant_path %>
         <% else %>
         <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
         <% end %>

@@ -4,9 +4,7 @@ class Reservation < ActiveRecord::Base
 
   validates :party_size, numericality: { greater_than: 0 }
   validates :time, presence: true
-  # Still need to validate when no information passed to date or time
 
-  # Implement DateTime splitting and rejoining
   before_validation :convert_to_datetime
 
 
