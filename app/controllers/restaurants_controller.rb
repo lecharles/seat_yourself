@@ -38,7 +38,9 @@
   end
 
   def destroy
-    #code
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.destroy
+    redirect_to restaurants_path, notice: "Restaurant successfully deleted!"
   end
 
 

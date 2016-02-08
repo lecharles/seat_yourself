@@ -1,6 +1,7 @@
 
 <% if current_user.id == @restaurant.owner_id %>
 
+<p></p>
   <%= form_for @restaurant, url: {action: "update"} do |f| %>
 
     <% if @restaurant.errors.any? %>
@@ -36,5 +37,7 @@
     </div>
 
   <% end %>
+  <p></p>
+  <%= link_to "Delete this restaurant listing?", @restaurant, method: :delete, data: {confirm: "Are you sure you want to delete this listing (including all associated reservations)?"} %>
 
 <% end %>
