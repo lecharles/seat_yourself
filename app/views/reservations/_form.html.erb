@@ -1,6 +1,6 @@
 <h1>at <%= @restaurant.name %></h1>
 
-<h2>Seats currently available: <%= @restaurant.capacity - @restaurant.total_diners %></h2>
+<h2>Total Restaurant Capacity: <%= @restaurant.capacity %></h2>
 
 <% if current_user %>
   <%= form_for ([@restaurant, @reservation]) do |f| %>
