@@ -23,6 +23,10 @@
       <%= f.number_field :capacity %>
     </div>
 
+    <div class="field">
+      <%= f.text_field :url %>
+    </div>
+
     <div>
       <%= f.hidden_field :owner_id, value: current_user.id %>
     </div>

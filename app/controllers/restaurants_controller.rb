@@ -49,7 +49,7 @@
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :capacity, :owner_id)
+    params.require(:restaurant).permit(:name, :capacity, :url, :owner_id)
   end
 
 end
