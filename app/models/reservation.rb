@@ -9,6 +9,7 @@ class Reservation < ActiveRecord::Base
   # Implement DateTime splitting and rejoining
   before_validation :convert_to_datetime
 
+
   def date_field
     time.strftime("%d/%m/%Y") if time.present?
   end
@@ -30,4 +31,9 @@ class Reservation < ActiveRecord::Base
   def convert_to_datetime
     self.time = DateTime.parse("#{@date_field} #{@time_field}")
   end
+
+  def hour
+    self.time.hour
+  end
+
 end

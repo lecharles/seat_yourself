@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :load_restaurant
+  before_action :check_availability?, only: :create
 
   def show
     @reservations = Reservation.all
@@ -12,21 +13,21 @@ class ReservationsController < ApplicationController
   def create
     @reservation = @restaurant.reservations.build(reservation_params)
     @reservation.user = current_user
+    @restaurant = Restaurant.where(id: @reservation.restaurant_id)
 
-    temp_diners = @restaurant.total_diners_at_time(@reservation.time) + @reservation.party_size
-
-    if @restaurant.total_diners_at_time(@reservation.time) + temp_diners <= capacity
       if @reservation.save
         redirect_to restaurant_path(@restaurant), notice: "Reservations created successfully!"
       else
         # Won't work with render, works with redirect_to. Not sure why
         redirect_to restaurant_path(@restaurant), notice: "Reservation creation failed. Please try again"
       end
-    else
-      flash[:alert] = "There are no seats available for that time. Please try again."
-      render :new
-    end
 
+  end
+
+  def check_availability?
+    occupied_seats = Reservation.where(restaurant_id: reservation.restaurant_id, time: reservation.time).sum(:party_size)
+
+    occupied_seats + self.party_size <= Restaurant.find(self.restaurant_id).capacity
   end
 
   private
