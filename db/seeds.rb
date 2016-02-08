@@ -25,9 +25,10 @@ Restaurant.create(name: "Nota Bene", owner_id: 5, capacity: 20, url: "http://www
 
 Restaurant.create(name: "Lee Garden", owner_id: 5, capacity: 25, url: "http://goo.gl/WnqRxw")
 
-# User.create(
-#   first_name: "Carlos",
-#   last_name: "Lozano",
-#   password: "123123",
-#   password_confirmation: "123123",
-#   email: "charleslozano@gmail.com"
+User.create(
+  first_name: "Mike",
+  last_name: "Bowman",
+  password: "password",
+  password_confirmation: "password",
+  email: "mbowman2@gmail.com"
+)
