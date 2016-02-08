@@ -39,9 +39,11 @@ header {
   background-color: white;
   margin: 0 auto;
   width: 75%;
-  position: relative;
-  /*top: 0;*/
-  /*left: 0;*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
 }
 
 nav {
@@ -52,7 +54,7 @@ nav {
   background: #b9e1d8;
   color: #FFF3EC;
   width: 75%;
-  margin: 0 auto;
+  margin: 73px auto;
   min-height: 100%;
   text-align: center;
 }
