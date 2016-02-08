@@ -8,7 +8,9 @@
     <% end %>
   </ul>
   <div class="restaurant-img">
-    <%= image_tag restaurant.url %>
+    <%= link_to restaurant_path(restaurant) do %>
+      <%= image_tag restaurant.url %>
+    <% end %>
   </div>
 </div>
 <% end %>
