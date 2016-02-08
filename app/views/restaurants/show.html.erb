@@ -1,7 +1,9 @@
 <h1>At <%= @restaurant.name %></h1>
-<% if @restaurant.owner_id == current_user.id%>
-  <%= link_to "Edit or delete restaurant listing?", edit_restaurant_path(@restaurant) %>
-  <p></p>
+<% if current_user %>
+  <% if @restaurant.owner_id == current_user.id%>
+    <%= link_to "Edit or delete restaurant listing?", edit_restaurant_path(@restaurant) %>
+    <p></p>
+  <% end %>
 <% end %>
 
 <h2>Seats currently available: <%= @restaurant.capacity - @restaurant.total_diners %></h2>
@@ -41,6 +43,10 @@
           <li>Booked for: <%= reservation.user.first_name %> <%= reservation.user.last_name %></li>
           <li>Reservation number: <%= reservation.id %></li>
         </ul>
+          <%= link_to "Edit this reservation", edit_restaurant_reservation_path(@restaurant, reservation.id) %>
+          <br>
+          <%= link_to "Delete this reservation", [@restaurant, reservation], method: :delete, data: {confirm: "Are you sure you want to delete this reservation?"} %>
+          <p></p>
       <% end %>
     </p>
   </div>
