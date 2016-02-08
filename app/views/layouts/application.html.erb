@@ -12,7 +12,7 @@
         <h1 class="logo"><%= link_to 'Be Our', restaurants_path %> Guest</h1>
       <p class="userinfo">
         <% if current_user %>
-        Signed in as <%= current_user.email%>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+        Hi there, <%= current_user.first_name %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
         <br>
         <%= link_to "Add a restaurant listing?", new_restaurant_path %>
         <% else %>
@@ -44,19 +44,3 @@
   </footer>
 </body>
 </html>
-
-<!-- comment in code:
-  <img src="http://technologytherapy.com/wp-content/uploads/2014/03/guest.jpg" alt="Be Our Guest">
-  Add login/sign up options to header - wrap in a div or something
-  Add navigation options to header and footer - nav tag
-  <section>
-  <code>
-  < link_to "Login", new_session_path, class: "session_button" >
-  </code>
-  </section>
-  <section>
-  <code>
-  < link_to "Sign Up", new_user_path, class: "session_button" >
-  </code>
-  </section> -->
-  <!-- Add navigation options within nav tag -->
